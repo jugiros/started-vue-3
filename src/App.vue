@@ -7,8 +7,20 @@
     <p v-for="(val, index) in arrVal" :key="index">{{ index }}: {{ val }}</p>
     <ul>
       <li v-for="(val, index) in arrVal" :key="index">
-        {{index}}: {{val}}
+        {{ index }}: {{ val }}
       </li>
+    </ul>
+    <ul>
+      <li v-for="(val, index) in powers" :key="index">
+        <!-- Para que no se renderice usamos template, el template no renderiza ninguna etiqueta solo lo interno<p>{{ val }}</p>-->
+        <template v-if="parseInt(val) > 90">{{ val }}</template>
+      </li>
+      <br />
+      <template v-for="(val, index) in powers" :key="index">
+        <li v-if="parseInt(val) > 90">Mayor: {{ val }}</li>
+        <li v-else-if="parseInt(val) == 90">Igual: {{ val }}</li>
+        <li v-else>Menor: {{ val }}</li>
+      </template>
     </ul>
   </div>
 </template>
@@ -16,6 +28,7 @@
 import Car from "@/components/Car.vue";
 const marca = "Chevrolet";
 const arrVal = ["uno", "dos", "tres", "uno"];
+const powers = ["80", "90", "100", "120"];
 </script>
 
 <style lang="scss" scoped></style>

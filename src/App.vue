@@ -22,10 +22,14 @@
         <li v-else>Menor: {{ val }}</li>
       </template>
     </ul>
+    <evento-click-setup-script></evento-click-setup-script>
+    <evento-click></evento-click>
   </div>
 </template>
 <script setup>
 import Car from "@/components/Car.vue";
+import EventoClick from "@/components/EventoClickSetup-Script.vue";
+import EventoClickSetupScript from "@/components/EventoClickSetup-Script.vue";
 const marca = "Chevrolet";
 const arrVal = ["uno", "dos", "tres", "uno"];
 const powers = ["80", "90", "100", "120"];

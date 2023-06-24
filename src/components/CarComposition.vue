@@ -11,6 +11,12 @@
 <script>
 import { ref } from "vue";
 export default {
+  props: {
+    propName: {
+      type: Number,
+      default: 0
+    },
+  },
   setup() {
     const brand = "Audi";
     const model = "A4";

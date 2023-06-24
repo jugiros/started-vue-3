@@ -6,6 +6,7 @@
     <p>Potencia: {{ power }}</p>
     <button @click="upPower(20)">Aumentar</button>
     <button @click="downPower()">Disminuir</button>
+    <p>Primer número: {{  }}</p>
   </div>
 </template>
 <script setup>

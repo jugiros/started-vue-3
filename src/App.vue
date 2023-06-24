@@ -3,17 +3,19 @@
     <h1>Nuestro primer componente vue js</h1>
     <p>Hola mundo</p>
     <car></car>
-    <test></test>
+    <p>{{ marca }}</p>
+    <p v-for="(val, index) in arrVal" :key="index">{{ index }}: {{ val }}</p>
+    <ul>
+      <li v-for="(val, index) in arrVal" :key="index">
+        {{index}}: {{val}}
+      </li>
+    </ul>
   </div>
 </template>
-
-<script>
+<script setup>
 import Car from "@/components/Car.vue";
-import test from "@/components/Test.vue";
-import Test from "@/components/Test.vue";
-export default {
-  components: {Test, Car}
-};
+const marca = "Chevrolet";
+const arrVal = ["uno", "dos", "tres", "uno"];
 </script>
 
 <style lang="scss" scoped></style>

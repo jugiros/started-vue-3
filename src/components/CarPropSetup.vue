@@ -4,6 +4,7 @@
     <p>Marca: {{ brand }}</p>
     <p>Modelo: {{ model }}</p>
     <p>Potencia: {{ props.power }}</p>
+    <button @click="props.upPower">Aumenta</button>
   </div>
 </template>
 <script setup>
@@ -12,11 +13,20 @@ const brand = "Audi";
 const model = "A4";
 const props = defineProps({
   power: {
-    type: String,
+    type: Number,
     default: 60,
   },
+  upPower: {
+    type: Function,
+    default: () => {
+      return "Prueba de función";
+    },
+  },
 });
-console.log("Props setup: ", props.power);
+console.log("Props setup: ", props);
+function testPower() {
+  props.upPower();
+}
 </script>
 
 <style lang="scss" scoped></style>

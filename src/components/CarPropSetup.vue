@@ -5,12 +5,14 @@
     <p>Modelo: {{ model }}</p>
     <p>Potencia: {{ props.power }}</p>
     <button @click="props.upPower">Aumenta</button>
+    <button @click="downPowerTest">Disminuir</button>
   </div>
 </template>
 <script setup>
 import { ref } from "vue";
 const brand = "Audi";
 const model = "A4";
+const emits = defineEmits(["downPower"]);
 const props = defineProps({
   power: {
     type: Number,
@@ -26,6 +28,9 @@ const props = defineProps({
 console.log("Props setup: ", props);
 function testPower() {
   props.upPower();
+}
+function downPowerTest () {
+  emits('downPower')
 }
 </script>
 

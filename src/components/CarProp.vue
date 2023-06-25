@@ -5,6 +5,7 @@
     <p>Modelo: {{ model }}</p>
     <p>Potencia: {{ power }}</p>
     <button @click="testPower">Aumentar</button>
+    <button @click="downPowerFn">Disminuir</button>
   </div>
 </template>
 <script>
@@ -22,17 +23,22 @@ export default {
       }
     },
   },
-  setup(props) {
+  emits: ["downPower"],
+  setup(props, context) {
     console.log('Props: ', props);
     const brand = "Audi";
     const model = "A4";
     const testPower = () => {
       props.upPower();
     }
+    const downPowerFn = () => {
+      context.emit("downPower");
+    }
     return {
       brand,
       model,
-      testPower
+      testPower,
+      downPowerFn
     };
   },
 };

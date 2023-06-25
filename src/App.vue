@@ -2,12 +2,12 @@
   <!--  <car-composition></car-composition>-->
   <!--  <h1>Setup</h1>-->
   <!--  <car-composition-setup></car-composition-setup>-->
-  <car-prop :power="power" :up-power="upPower"></car-prop>
+  <car-prop :power="power" :up-power="upPower" @downPower="downPower"></car-prop>
   <h2>Setup</h2>
-  <car-prop-setup :power="power" :up-power="upPower"></car-prop-setup>
+  <car-prop-setup :power="power" :up-power="upPower" @downPower="downPower"></car-prop-setup>
 </template>
 <script>
-import {ref} from "vue";
+import { ref } from "vue";
 import { defineComponent } from "vue";
 import CarPadre from "@/components/CarProp.vue";
 import CarPropSetup from "@/components/CarPropSetup.vue";
@@ -21,12 +21,16 @@ export default defineComponent({
   setup() {
     let power = ref(30);
     const upPower = () => {
-      power.value++
-      console.log('Aumentar potencia');
-    }
+      power.value++;
+      console.log("Aumentar potencia");
+    };
+    const downPower = () => {
+      power.value--;
+    };
     return {
       power,
-      upPower
+      upPower,
+      downPower
     };
   },
 });
